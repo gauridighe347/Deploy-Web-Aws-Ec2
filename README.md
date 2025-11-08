@@ -1,42 +1,64 @@
 # Deploying an Application on AWS EC2
+Prerequisites
+Launched EC2 instance
+AMI: Ubuntu
+Created Key Pair
+Created Security Group
+Step 1: Launch EC2 Instance
+Choose Ubuntu AMI
+Select an instance type (e.g., t2.micro)
+Add Key Pair
+Create a Security Group with inbound rules:
+SSH → Port 22
+HTTP → Port 80
+Launch the instance ✅
 
-## Prerequisites
-Before deploying your application on AWS EC2, ensure you have:
-- An AWS account
-- AWS CLI installed and configured (`aws configure`)
-- SSH key pair (`.pem` file) for EC2 access
-- A pre-built application ready for deployment
 
-## Step 1: Launch an EC2 Instance
-1. Log in to AWS Management Console.
-2. Navigate to **EC2** > **Instances**.
-3. Click **Launch Instance**.
-4. Choose an Amazon Machine Image (AMI), e.g., **Amazon Linux 2**.
-5. Select an instance type (e.g., `t2.micro` for free-tier eligibility).
-6. Configure security group:
-   - Allow **SSH (port 22)** for access.
-   - Allow necessary ports (e.g., **80, 443 for web apps**).
-7. Add a key pair for SSH access.
-8. Launch the instance.
 
-## Step 2: Connect to the EC2 Instance
-```sh
-ssh -i your-key.pem ec2-user@your-ec2-public-ip
-```
 
-## Step 3: Update and Install Dependencies
-```sh
-sudo yum update -y   # Amazon Linux
-sudo apt update -y   # Ubuntu/Debian
 
-# Install required packages (example for a web app)
-sudo yum install -y git nginx nodejs
-```
+
+
+6.Security group
+
+
+
+Step 2: Connect to the EC2 Instance
+Use your key pair to SSH into the instance:
+
+ssh -i "My-keypair.pem" ec2-user@ec2-43-204-148-151.ap-south-1.compute.amazonaws.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Step 3: Install Packages and Dependencies
+1️⃣ Update and upgrade the system
+
+sudo apt update -y
+sudo apt upgrade -y
+
+
+
+
+
+
+
 
 ## Step 4: Deploy Your Application
 1. Clone your application repository:
    ```sh
-   git clone https://github.com/your-repo/app.git
+   git clone https://github.com/your-repo/app.gitDeploy a Web Application on AWS EC2
+
    cd app
    ```
 2. Install dependencies:
