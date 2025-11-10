@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Deploy a Web Application on AWS EC2
 Prerequisites
 Launched EC2 instance
@@ -95,5 +96,23 @@ Step 8: Access Your Application
 http://<your-ec2-public-ip>
 Website Screenshot
 
-Website Screenshot
 
+
+## screenshots
+
+| Step | Description                  | Screenshot                                            |
+| ---- | ---------------------------- | ----------------------------------------------------- |
+| 1    | Connected to EC2 Instance    | ![Connect](./screenshots/connect.jpg)                 |
+| 2    | Security Group Configuration | ![Security Group](./screenshots/securuty%20group.jpg) |
+| 3    | Instance Setup Complete      | ![Instance](./screenshots/instance.jpg)               |
+| 4    | System Update                | ![Update](./screenshots/update.jpg)                   |
+| 5    | System Upgrade               | ![Upgrade](./screenshots/upgrade.jpg)                 |
+| 6    | Node.js Installed            | ![Node JS](./screenshots/node%20js.jpg)               |
+| 7    | Node Version Check           | ![Version](./screenshots/version.jpg)                 |
+| 8    | Firewall Enabled             | ![Firewall](./screenshots/firewall.jpg)               |
+| 9    | Firewall Reloaded            | ![Reload](./screenshots/reload.jpg)                   |
+| 10   | Git Setup on EC2             | ![Git](./screenshots/git.jpg)                         |
+| 11   | Application Output (Part 1)  | ![Output1](./screenshots/output1.jpg)                 |
+| 12   | Application Output (Part 2)  | ![Output2](./screenshots/output2.jpg)                 |
+
+>>>>>>> 342d12f (Added project screenshots section)
