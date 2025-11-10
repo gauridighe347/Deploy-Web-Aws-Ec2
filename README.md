@@ -1,4 +1,4 @@
-# Deploying an Application on AWS EC2
+Deploy a Web Application on AWS EC2
 Prerequisites
 Launched EC2 instance
 AMI: Ubuntu
@@ -11,107 +11,89 @@ Add Key Pair
 Create a Security Group with inbound rules:
 SSH → Port 22
 HTTP → Port 80
-Launch the instance ✅
-
-
-
-
-
-
-
-6.Security group
-
-
+Launch the instance ✅ Website Screenshot
+6.Security group Website Screenshot
 
 Step 2: Connect to the EC2 Instance
 Use your key pair to SSH into the instance:
 
-ssh -i "My-keypair.pem" ec2-user@ec2-43-204-148-151.ap-south-1.compute.amazonaws.com
-
-
-
-
-
-
-
-
-
-
-
-
-
+ssh -i "MY-KEY.pem" ec2-user@ec2-43-204-148-151.ap-south-1.compute.amazonaws.com
+Website Screenshot
 
 Step 3: Install Packages and Dependencies
 1️⃣ Update and upgrade the system
 
 sudo apt update -y
 sudo apt upgrade -y
+Website Screenshot
 
+2️⃣ Install Node.js
 
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt install -y nodejs
+Website Screenshot Website Screenshot
 
+3️⃣ Install Git and Nginx
 
+sudo apt install -y git nginx
+Website Screenshot
 
+4️⃣ Check installations
 
+git --version
+node --version
+Website Screenshot
 
+Step 4: Deploy Your Application
+git clone https://github.com/Maheshbharambe45/Deploy-Webapp-Aws-Ec2.git
+cd Deploy-Webapp-Aws-Ec2
+project has dependencies, install them
 
-## Step 4: Deploy Your Application
-1. Clone your application repository:
-   ```sh
-   git clone https://github.com/your-repo/app.gitDeploy a Web Application on AWS EC2
+npm install
+Step 5: Add Firewall Rules
+1️⃣ Install firewalld
 
-   cd app
-   ```
-2. Install dependencies:
-   ```sh
-   npm install  # For Node.js apps
-   ```
-3. Start the application:
-   ```sh
-   node server.js &
-   ```
+sudo yum install -y firewalld
+2️⃣ Enable and start the firewall service
 
-## Step 5: Configure Firewall and Security Group
-Ensure your EC2 instance allows inbound traffic on required ports:
-```sh
-sudo firewall-cmd --add-service=http --permanent
+sudo systemctl enable firewalld
+sudo systemctl start firewalld
+Website Screenshot Website Screenshot
+
+3️⃣ Allow HTTP (port 80) and HTTPS (port 443)
+
+sudo firewall-cmd --permanent --add-service=http
+4️⃣ Reload firewall to apply changes
+
 sudo firewall-cmd --reload
-```
+Step 6: Set Up Reverse Proxy Using Nginx
+Edit the Nginx configuration: Website Screenshot
 
-Modify security group in AWS to allow necessary ports.
-
-## Step 6: Set Up a Reverse Proxy (Optional)
-For production deployments, use Nginx as a reverse proxy:
-```sh
 sudo nano /etc/nginx/nginx.conf
-```
-Configure the `server` block:
-```nginx
+Add this block inside the http block
+
 server {
     listen 80;
     server_name your-ec2-public-ip;
+
     location / {
         proxy_pass http://localhost:3000;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
     }
 }
-```
-Restart Nginx:
-```sh
+restart nginx
+
 sudo systemctl restart nginx
-```
+sudo systemctl enable nginx
+sudo systemctl status nginx
+Step 7: Start Your Application
+node index.js
+Website Screenshot
 
-## Step 7: Enable Auto-Start (Optional)
-Use **PM2** to keep your app running:
-```sh
-npm install -g pm2
-pm2 start server.js
-pm2 startup
-pm2 save
-```
+Step 8: Access Your Application
+http://<your-ec2-public-ip>
+Website Screenshot
 
-## Step 8: Access Your Application
-Visit `http://your-ec2-public-ip` in a browser.
+Website Screenshot
 
-## Conclusion
-Your application is now live on AWS EC2! 🎉 For production, consider using **Elastic Load Balancing (ELB)** and **Auto Scaling** for better scalability.
