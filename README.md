@@ -19,7 +19,7 @@
 5. Launch the instance  
 
 📸 **Instance Screenshot:**  
-![EC2 Instance](images/ec2-instance.png)
+![EC2 Instance](Screenshots/instance.png)
 
 📸 **Security Group Screenshot:**  
 ![Security Group](images/security-group.png)
