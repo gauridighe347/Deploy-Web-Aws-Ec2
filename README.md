@@ -22,7 +22,7 @@ It covers steps like system setup, package installation, firewall configuration,
 - Connect to instance using `.pem` key  
 
 📸 **Screenshots:**  
-![Instance](./screenshots/instance.jpg)  
+![Instance img](Screenshots/instance.jpg)
 ![Security Group](./screenshots/securuty%20group.jpg)  
 ![Connect](./screenshots/connect.jpg)
 
