@@ -19,7 +19,7 @@
 5. Launch the instance  
 
 📸 **Instance Screenshot:**  
-![EC2 Instance](Screenshots/instance.png)
+![EC2 Instance](C:\Users\gauri\OneDrive\Pictures\Screenshots\instance.jpg)
 
 📸 **Security Group Screenshot:**  
 ![Security Group](images/security-group.png)
