@@ -36,31 +36,35 @@ Step 3: Install Packages and Dependencies
 
 sudo apt update -y
 sudo apt upgrade -y
-Website Screenshot
+![update](./Screenshots/update.jpg)
+![upgrade](./Screenshots/upgrade.jpg)
 
 2️⃣ Install Node.js
 
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install -y nodejs
-Website Screenshot Website Screenshot
+![nodejs](./Screenshots/node%20js.jpg)
 
 3️⃣ Install Git and Nginx
 
 sudo apt install -y git nginx
-Website Screenshot
+![git](./Screenshots/git.jpg)
 
 4️⃣ Check installations
 
 git --version
 node --version
-Website Screenshot
+![version](./Screenshots/version.jpg)
+
 
 Step 4: Deploy Your Application
-git clone https://github.com/Maheshbharambe45/Deploy-Webapp-Aws-Ec2.git
+git clone https://github.com/gauridighe347/Deploy-Web-AWS-Ec2.git
 cd Deploy-Webapp-Aws-Ec2
 project has dependencies, install them
 
 npm install
+
+
 Step 5: Add Firewall Rules
 1️⃣ Install firewalld
 
@@ -69,7 +73,7 @@ sudo yum install -y firewalld
 
 sudo systemctl enable firewalld
 sudo systemctl start firewalld
-Website Screenshot Website Screenshot
+![firewall](./Screenshots/firewall.jpg)
 
 3️⃣ Allow HTTP (port 80) and HTTPS (port 443)
 
@@ -77,8 +81,11 @@ sudo firewall-cmd --permanent --add-service=http
 4️⃣ Reload firewall to apply changes
 
 sudo firewall-cmd --reload
+![reload firewall](./Screenshots/reload.jpg)
+
+
 Step 6: Set Up Reverse Proxy Using Nginx
-Edit the Nginx configuration: Website Screenshot
+Edit the Nginx configuration: 
 
 sudo nano /etc/nginx/nginx.conf
 Add this block inside the http block
@@ -98,11 +105,14 @@ restart nginx
 sudo systemctl restart nginx
 sudo systemctl enable nginx
 sudo systemctl status nginx
+
+
 Step 7: Start Your Application
 node index.js
-Website Screenshot
+
 
 Step 8: Access Your Application
 http://<your-ec2-public-ip>
-Website Screenshot
+![output1](./Screenshots/output1.jpg)
+![output2](/Screenshots/output2.jpg)
 
