@@ -30,6 +30,7 @@ Use your key pair to SSH into the instance:
 
 ssh -i "MY-KEY.pem" ec2-user@ec2-43-204-148-151.ap-south-1.compute.amazonaws.com
 ![connection](./Screenshots/connect.jpg)
+---
 
 Step 3: Install Packages and Dependencies
 1️⃣ Update and upgrade the system
@@ -56,6 +57,8 @@ git --version
 node --version
 ![version](./Screenshots/version.jpg)
 
+---
+
 
 Step 4: Deploy Your Application
 git clone https://github.com/gauridighe347/Deploy-Web-AWS-Ec2.git
@@ -63,6 +66,8 @@ cd Deploy-Webapp-Aws-Ec2
 project has dependencies, install them
 
 npm install
+
+---
 
 
 Step 5: Add Firewall Rules
@@ -82,6 +87,8 @@ sudo firewall-cmd --permanent --add-service=http
 
 sudo firewall-cmd --reload
 ![reload firewall](./Screenshots/reload.jpg)
+
+---
 
 
 Step 6: Set Up Reverse Proxy Using Nginx
@@ -106,13 +113,16 @@ sudo systemctl restart nginx
 sudo systemctl enable nginx
 sudo systemctl status nginx
 
+---
+
 
 Step 7: Start Your Application
 node index.js
+---
 
 
 Step 8: Access Your Application
 http://<your-ec2-public-ip>
 ![output1](./Screenshots/output1.jpg)
 ![output2](/Screenshots/output2.jpg)
-
+ 
