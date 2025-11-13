@@ -18,7 +18,7 @@
    - HTTP → Port 80  
 5. Launch the instance  
 
-![EC2 Instance](./Screenshots\instance.jpg)
+![EC2 Instance](./Screenshots/instance.jpg)
 
 📸 **Security Group Screenshot:**  
 ![Security Group](images/security-group.png)
