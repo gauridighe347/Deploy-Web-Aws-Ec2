@@ -25,86 +25,64 @@
 
 ---
 
-## ⚙️ Step 2: Connect to the EC2 Instance
-
+Step 2: Connect to the EC2 Instance
 Use your key pair to SSH into the instance:
 
-```bash
 ssh -i "MY-KEY.pem" ec2-user@ec2-43-204-148-151.ap-south-1.compute.amazonaws.com
 ![connection](./Screenshots/connect.jpg)
 
-🧩 Step 3: Install Packages and Dependencies
+Step 3: Install Packages and Dependencies
 1️⃣ Update and upgrade the system
-bash
-Copy code
+
 sudo apt update -y
 sudo apt upgrade -y
-📸 Update Screenshot:
+Website Screenshot
 
 2️⃣ Install Node.js
-bash
-Copy code
+
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install -y nodejs
-📸 Node.js Installation Screenshot:
+Website Screenshot Website Screenshot
 
 3️⃣ Install Git and Nginx
-bash
-Copy code
+
 sudo apt install -y git nginx
-📸 Git & Nginx Screenshot:
+Website Screenshot
 
 4️⃣ Check installations
-bash
-Copy code
+
 git --version
 node --version
-📸 Version Check Screenshot:
+Website Screenshot
 
-🧱 Step 4: Deploy Your Application
-bash
-Copy code
+Step 4: Deploy Your Application
 git clone https://github.com/Maheshbharambe45/Deploy-Webapp-Aws-Ec2.git
 cd Deploy-Webapp-Aws-Ec2
-If the project has dependencies, install them:
+project has dependencies, install them
 
-bash
-Copy code
 npm install
-📸 Clone & Install Screenshot:
-
-🔥 Step 5: Add Firewall Rules
+Step 5: Add Firewall Rules
 1️⃣ Install firewalld
-bash
-Copy code
-sudo apt install -y firewalld
+
+sudo yum install -y firewalld
 2️⃣ Enable and start the firewall service
-bash
-Copy code
+
 sudo systemctl enable firewalld
 sudo systemctl start firewalld
-📸 Firewall Service Screenshot:
+Website Screenshot Website Screenshot
 
 3️⃣ Allow HTTP (port 80) and HTTPS (port 443)
-bash
-Copy code
+
 sudo firewall-cmd --permanent --add-service=http
 4️⃣ Reload firewall to apply changes
-bash
-Copy code
+
 sudo firewall-cmd --reload
-📸 Firewall Reload Screenshot:
+Step 6: Set Up Reverse Proxy Using Nginx
+Edit the Nginx configuration: Website Screenshot
 
-🌐 Step 6: Set Up Reverse Proxy Using Nginx
-Edit the Nginx configuration:
-
-bash
-Copy code
 sudo nano /etc/nginx/nginx.conf
-Add this block inside the http block 👇
+Add this block inside the http block
 
-nginx
-Copy code
 server {
     listen 80;
     server_name your-ec2-public-ip;
@@ -115,29 +93,16 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
     }
 }
-Restart Nginx:
+restart nginx
 
-bash
-Copy code
 sudo systemctl restart nginx
 sudo systemctl enable nginx
 sudo systemctl status nginx
-📸 Nginx Config Screenshot:
-
-🟢 Step 7: Start Your Application
-bash
-Copy code
+Step 7: Start Your Application
 node index.js
-📸 App Start Screenshot:
+Website Screenshot
 
-🌍 Step 8: Access Your Application
-Open your browser and visit:
-
-arduino
-Copy code
-http://your-ec2-public-ip
-📸 Website Screenshot:
-
-✅ Deployment Complete!
-Your Node.js web application is now successfully deployed on AWS EC2 using Nginx reverse proxy 🎉
+Step 8: Access Your Application
+http://<your-ec2-public-ip>
+Website Screenshot
 
