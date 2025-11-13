@@ -71,6 +71,7 @@ node --version
 Step 4: Deploy Your Application
 
 git clone https://github.com/gauridighe347/Deploy-Web-AWS-Ec2.git
+
 cd Deploy-Webapp-Aws-Ec2
 project has dependencies, install them
 
