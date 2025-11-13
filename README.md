@@ -21,7 +21,7 @@
 ![EC2 Instance](./Screenshots/instance.jpg)
 
 📸 **Security Group Screenshot:**  
-![Security Group](./Screenshots/securuty group.jpg)
+![Security Group](./Screenshots/securuty%20group.jpg)
 
 ---
 
@@ -31,7 +31,7 @@ Use your key pair to SSH into the instance:
 
 ```bash
 ssh -i "MY-KEY.pem" ec2-user@ec2-43-204-148-151.ap-south-1.compute.amazonaws.com
-📸 Connection Screenshot:
+![ connection](./Screenshots/connect.jpg)
 
 🧩 Step 3: Install Packages and Dependencies
 1️⃣ Update and upgrade the system
