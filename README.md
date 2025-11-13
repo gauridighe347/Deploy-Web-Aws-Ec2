@@ -31,7 +31,7 @@ Use your key pair to SSH into the instance:
 
 ```bash
 ssh -i "MY-KEY.pem" ec2-user@ec2-43-204-148-151.ap-south-1.compute.amazonaws.com
-![ connection](./Screenshots/connect.jpg)
+![connection](./Screenshots/connect.jpg)
 
 🧩 Step 3: Install Packages and Dependencies
 1️⃣ Update and upgrade the system
