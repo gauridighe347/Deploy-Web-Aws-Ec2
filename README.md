@@ -21,7 +21,7 @@
 ![EC2 Instance](./Screenshots/instance.jpg)
 
 📸 **Security Group Screenshot:**  
-![Security Group](./screenshots/securuty group.jpg)
+![Security Group](./Screenshots/securuty group.jpg)
 
 ---
 
